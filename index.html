@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Heladería y Frutería Arcoíris en Tocaima, Colombia. Disfruta de los mejores helados artesanales, ensaladas de frutas y jugos naturales. ¡Sabor, color y frescura en cada bocado!" />
+  <meta name="keywords" content="heladería, frutería, Tocaima, Colombia, helados, frutas, jugos naturales, ensalada de frutas" />
+  <meta name="author" content="Heladería y Frutería Arcoíris" />
+
+  <!-- Open Graph / Redes Sociales -->
+  <meta property="og:title" content="Heladería y Frutería Arcoíris - Tocaima" />
+  <meta property="og:description" content="Sabor, color y frescura en cada bocado. Los mejores helados y frutas de Tocaima." />
+  <meta property="og:type" content="website" />
+
+  <title>Heladería y Frutería Arcoíris | Tocaima, Colombia</title>
+  <link rel="icon" href="img/logo.ico" sizes="32x32">
+
+  <!-- Google Fonts: Poppins (principal) + Pacifico (display/títulos) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome para íconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Hoja de estilos principal -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- =============================================
+       HEADER / NAVEGACIÓN
+  ============================================= -->
+  <header class="header" id="header">
+    <nav class="navbar" role="navigation" aria-label="Menú principal">
+      <div class="nav-logo">
+        <!-- Ícono arcoíris + nombre del negocio -->
+        <span class="logo-icon" aria-hidden="true">🍦</span>
+        <div class="logo-text">
+          <span class="logo-main">Arcoíris</span>
+          <span class="logo-sub">Heladería &amp; Frutería</span>
+        </div>
+      </div>
+
+      <!-- Botón hamburguesa para móviles -->
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <!-- Links de navegación -->
+      <ul class="nav-menu" id="navMenu" role="menubar">
+        <li role="none"><a href="#inicio"    class="nav-link active" role="menuitem" id="nav-inicio">🏠 Inicio</a></li>
+        <li role="none"><a href="#productos" class="nav-link"        role="menuitem" id="nav-productos">🍨 Productos</a></li>
+        <li role="none"><a href="#nosotros"  class="nav-link"        role="menuitem" id="nav-nosotros">💛 Nosotros</a></li>
+        <li role="none"><a href="#equipo"    class="nav-link"        role="menuitem" id="nav-equipo">👥 Equipo</a></li>
+        <li role="none"><a href="#contacto"  class="nav-link"        role="menuitem" id="nav-contacto">📞 Contacto</a></li>
+      </ul>
+
+      <!-- Botón del carrito de compras -->
+      <button class="cart-btn" id="cartBtn" aria-label="Ver carrito de compras">
+        <i class="fas fa-shopping-basket" aria-hidden="true"></i>
+        <span class="cart-badge" id="cartBadge" aria-live="polite">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- =============================================
+       SECCIÓN INICIO / HERO
+  ============================================= -->
+  <section class="hero" id="inicio" aria-label="Bienvenida">
+
+    <!-- Burbujas decorativas de colores arcoíris -->
+    <div class="bubbles" aria-hidden="true">
+      <span class="bubble bubble-1"></span>
+      <span class="bubble bubble-2"></span>
+      <span class="bubble bubble-3"></span>
+      <span class="bubble bubble-4"></span>
+      <span class="bubble bubble-5"></span>
+      <span class="bubble bubble-6"></span>
+    </div>
+
+    <div class="hero-content">
+      <!-- Texto de bienvenida -->
+      <div class="hero-text">
+        <p class="hero-tag animate-fade-up">📍 Tocaima, Cundinamarca · Colombia</p>
+        <h1 class="hero-title animate-fade-up delay-1">
+          <span class="rainbow-text">Heladería y Frutería</span>
+          <br />
+          <span class="hero-brand">Arcoíris 🌈</span>
+        </h1>
+        <p class="hero-slogan animate-fade-up delay-2">
+          "Sabor, color y frescura en cada bocado"
+        </p>
+        <p class="hero-desc animate-fade-up delay-3">
+          Bienvenidos al lugar donde la naturaleza y el sabor se encuentran. Preparamos nuestros helados y ensaladas con frutas 100% frescas, traídas directamente del campo para ti y tu familia.
+        </p>
+        <div class="hero-buttons animate-fade-up delay-4">
+          <a href="#productos" class="btn btn-primary" id="hero-btn-productos">
+            🍨 Ver Productos
+          </a>
+          <a href="#contacto" class="btn btn-outline" id="hero-btn-contacto">
+            📞 Contáctanos
+          </a>
+        </div>
+
+        <!-- Etiquetas destacadas -->
+        <div class="hero-badges animate-fade-up delay-5">
+          <span class="badge badge-red">🍓 100% Natural</span>
+          <span class="badge badge-orange">🥭 Frutas Frescas</span>
+          <span class="badge badge-yellow">⭐ Calidad Premium</span>
+        </div>
+      </div>
+
+      <!-- Slideshow de fotos reales de heladería -->
+      <div class="hero-image animate-zoom-in delay-2">
+        <div class="hero-image-wrapper">
+
+          <!-- Slideshow con fotos reales -->
+          <div class="hero-slideshow" id="heroSlideshow" aria-label="Galería de fotos de la heladería">
+            <div class="slide active">
+              <img
+                src="img/bebida.jpg"
+                alt="Heladería colorida con variedad de sabores artesanales"
+                loading="eager"
+              />
+            </div>
+            <div class="slide">
+              <img
+                src="img/inicio2.jpeg"
+                alt="Vitrina de helados artesanales con colores vibrantes"
+                loading="lazy"
+              />
+            </div>
+            <div class="slide">
+              <img
+                src="img/ensaladas.jpg"
+                alt="Frutas tropicales frescas en una frutería colombiana"
+                loading="lazy"
+              />
+            </div>
+            <div class="slide">
+              <img
+                src="img/inicio1.jpeg"
+                alt="Ensalada de frutas tropicales con crema"
+                loading="lazy"
+              />
+            </div>
+            <!-- Controles del slideshow -->
+            <button class="slide-prev" id="slidePrev" aria-label="Foto anterior"><i class="fas fa-chevron-left"></i></button>
+            <button class="slide-next" id="slideNext" aria-label="Foto siguiente"><i class="fas fa-chevron-right"></i></button>
+            <!-- Indicadores de puntos -->
+            <div class="slide-dots" id="slideDots" aria-label="Indicadores de diapositiva">
+              <button class="dot active" data-index="0" aria-label="Foto 1"></button>
+              <button class="dot" data-index="1" aria-label="Foto 2"></button>
+              <button class="dot" data-index="2" aria-label="Foto 3"></button>
+              <button class="dot" data-index="3" aria-label="Foto 4"></button>
+            </div>
+          </div>
+
+          <!-- Tarjeta flotante: ubicación -->
+          <div class="floating-card card-location">
+            <span class="card-icon">📍</span>
+            <div>
+              <strong>Tocaima</strong>
+              <small>Cundinamarca, CO</small>
+            </div>
+          </div>
+          <!-- Tarjeta flotante: calificación -->
+          <div class="floating-card card-rating">
+            <span class="card-icon">⭐</span>
+            <div>
+              <strong>4.9 / 5</strong>
+              <small>+500 clientes felices</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ola decorativa inferior -->
+    <div class="hero-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,80 C360,140 1080,0 1440,80 L1440,120 L0,120 Z" fill="#fff9f0"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- =============================================
+       SECCIÓN PRODUCTOS
+       El contenido del grid se genera dinámicamente desde
+       js/products.js (ver js/main.js → renderProducts()).
+  ============================================= -->
+  <section class="products-section" id="productos" aria-label="Nuestros productos">
+    <div class="container">
+
+      <!-- Encabezado de sección -->
+      <div class="section-header">
+        <span class="section-tag">🍧 Nuestro Menú</span>
+        <h2 class="section-title">Productos <span class="highlight-green">Irresistibles</span></h2>
+        <p class="section-desc">Elaborados con amor, frutas frescas y los mejores ingredientes naturales de Colombia.</p>
+      </div>
+
+      <!-- Filtros de categoría -->
+      <div class="category-filters" role="tablist" aria-label="Filtrar productos por categoría">
+        <button class="filter-btn active" data-filter="all"            role="tab" id="filter-all"           aria-selected="true">🌈 Todos</button>
+        <button class="filter-btn"        data-filter="helados"        role="tab" id="filter-helados"       aria-selected="false">🍦 Helados</button>
+        <button class="filter-btn"        data-filter="ensaladas"      role="tab" id="filter-ensaladas"     aria-selected="false">🥗 Ensaladas</button>
+        <button class="filter-btn"        data-filter="jugos"          role="tab" id="filter-jugos"         aria-selected="false">🥤 Jugos</button>
+        <button class="filter-btn"        data-filter="comida rapida"  role="tab" id="filter-comida-rapida" aria-selected="false">🍔 Comida Rápida</button>
+      </div>
+
+      <!-- Grid de productos (poblado por JavaScript) -->
+      <div class="products-grid" id="productsGrid" aria-live="polite"></div>
+
+    </div><!-- /container -->
+  </section>
+
+  <!-- =============================================
+       SECCIÓN NOSOTROS
+  ============================================= -->
+  <section class="about-section" id="nosotros" aria-label="Sobre nosotros">
+
+    <!-- Ola decorativa superior -->
+    <div class="section-wave-top" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,40 C480,100 960,0 1440,40 L1440,0 L0,0 Z" fill="#fff9f0"/>
+      </svg>
+    </div>
+
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">💛 Nuestra Historia</span>
+        <h2 class="section-title">¿Quiénes <span class="highlight-rainbow">Somos?</span></h2>
+      </div>
+
+      <div class="about-grid">
+
+        <!-- Historia -->
+        <div class="about-card history-card animate-slide-left">
+          <div class="about-icon">📖</div>
+          <h3>Nuestra Historia</h3>
+          <p>
+            <strong>Heladería y Frutería Arcoíris</strong> nació en el corazón de Tocaima, Cundinamarca, con el sueño de ofrecer a nuestra comunidad productos naturales, frescos y deliciosos. Comenzamos como un pequeño emprendimiento familiar y hoy somos el lugar favorito de chicos y grandes en el municipio.
+          </p>
+          <p>
+            Cada producto que preparamos lleva ingredientes 100% naturales, seleccionados con cuidado para garantizar la mejor calidad. Creemos que comer sano puede ser divertido, colorido y delicioso. 🌈
+          </p>
+        </div>
+
+        <!-- Misión -->
+        <div class="about-card mission-card animate-fade-up delay-1">
+          <div class="about-icon">🎯</div>
+          <h3>Nuestra Misión</h3>
+          <p>
+            Ofrecer a nuestros clientes en Tocaima y la región productos de heladería y frutería de la más alta calidad, elaborados con ingredientes naturales y frescos, brindando una experiencia única llena de sabor, color y alegría en cada visita.
+          </p>
+          <ul class="about-list">
+            <li><span>🍓</span> Frutas frescas seleccionadas a diario</li>
+            <li><span>🌿</span> Sin conservantes ni colorantes artificiales</li>
+            <li><span>❤️</span> Atención cálida y familiar</li>
+            <li><span>🏆</span> Calidad garantizada en cada producto</li>
+          </ul>
+        </div>
+
+        <!-- Visión -->
+        <div class="about-card vision-card animate-slide-right">
+          <div class="about-icon">🔭</div>
+          <h3>Nuestra Visión</h3>
+          <p>
+            Para el año 2030, ser reconocidos como la heladería y frutería más querida de Cundinamarca, expandiendo nuestra propuesta de productos naturales y saludables a nuevos municipios, siempre manteniendo la esencia artesanal y la calidad que nos caracteriza.
+          </p>
+          <div class="vision-stats">
+            <div class="stat">
+              <span class="stat-number">+500</span>
+              <span class="stat-label">Clientes Felices</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">+30</span>
+              <span class="stat-label">Sabores Únicos</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">100%</span>
+              <span class="stat-label">Natural</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /about-grid -->
+
+      <!-- Valores -->
+      <div class="values-row">
+        <div class="value-item">
+          <span class="value-icon">🍃</span>
+          <span class="value-text">Naturalidad</span>
+        </div>
+        <div class="value-item">
+          <span class="value-icon">✨</span>
+          <span class="value-text">Calidad</span>
+        </div>
+        <div class="value-item">
+          <span class="value-icon">😊</span>
+          <span class="value-text">Alegría</span>
+        </div>
+        <div class="value-item">
+          <span class="value-icon">🤝</span>
+          <span class="value-text">Confianza</span>
+        </div>
+        <div class="value-item">
+          <span class="value-icon">🌱</span>
+          <span class="value-text">Frescura</span>
+        </div>
+      </div>
+
+    </div><!-- /container -->
+
+    <!-- Ola decorativa inferior -->
+    <div class="section-wave-bottom" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,40 C480,0 960,100 1440,40 L1440,80 L0,80 Z" fill="#f0fff4"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- =============================================
+       SECCIÓN CONTACTO
+  ============================================= -->
+  <section class="contact-section" id="contacto" aria-label="Información de contacto">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">📞 Encuéntranos</span>
+        <h2 class="section-title">¡Visítanos en <span class="highlight-blue">Tocaima!</span></h2>
+        <p class="section-desc">Estamos listos para atenderte. ¡Ven y disfruta de la mejor heladería del municipio!</p>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Info de contacto -->
+        <div class="contact-info">
+          <h3 class="contact-info-title">Información de Contacto</h3>
+
+          <div class="contact-item" id="contact-address">
+            <div class="contact-icon-wrap icon-red">
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+            </div>
+            <div class="contact-text">
+              <strong>Dirección</strong>
+              <span>Calle 4 8-76, Tocaima<br />Cundinamarca, Colombia</span>
+            </div>
+          </div>
+
+          <div class="contact-item" id="contact-phone">
+            <div class="contact-icon-wrap icon-orange">
+              <i class="fas fa-phone-alt" aria-hidden="true"></i>
+            </div>
+            <div class="contact-text">
+              <strong>Teléfono / WhatsApp</strong>
+              <span>+57 313 429 28 31</span>
+            </div>
+          </div>
+
+          <div class="contact-item" id="contact-hours">
+            <div class="contact-icon-wrap icon-yellow">
+              <i class="fas fa-clock" aria-hidden="true"></i>
+            </div>
+            <div class="contact-text">
+              <strong>Horario de Atención</strong>
+              <span>Lunes – Domingo<br />11:00 AM – 11:00 PM</span>
+            </div>
+          </div>
+
+          <div class="contact-item" id="contact-location-tag">
+            <div class="contact-icon-wrap icon-green">
+              <i class="fas fa-city" aria-hidden="true"></i>
+            </div>
+            <div class="contact-text">
+              <strong>Municipio</strong>
+              <span>Tocaima, Cundinamarca<br />Colombia 🇨🇴</span>
+            </div>
+          </div>
+
+          <!-- Botón WhatsApp -->
+          <a
+            href="https://wa.me/573134292831?text=Hola%2C%20me%20gustaría%20hacer%20un%20pedido%20en%20Heladería%20y%20Frutería%20Arcoíris%20🌈"
+            class="whatsapp-btn"
+            id="whatsapp-main-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Escribir al WhatsApp de Heladería Arcoíris"
+          >
+            <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            ¡Escríbenos por WhatsApp!
+          </a>
+
+          <!-- Redes sociales (solo Facebook y WhatsApp) -->
+          <div class="social-contact">
+            <p>Síguenos en redes sociales:</p>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/share/1DfzRHi6oQ/" class="social-icon icon-facebook" id="social-facebook" aria-label="Facebook de Heladería Arcoíris" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+              </a>
+              <a href="https://wa.me/573134292831" class="social-icon icon-whatsapp" id="social-whatsapp" aria-label="WhatsApp 3134292831" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mapa (iframe embebido) -->
+        <div class="map-container" aria-label="Mapa de ubicación en Tocaima">
+          <div class="map-header">
+            <span>📍 Tocaima, Cundinamarca</span>
+          </div>
+          <iframe
+            id="map-iframe"
+            title="Ubicación Heladería y Frutería Arcoíris en Tocaima, Cundinamarca, Colombia"
+            src="https://maps.google.com/maps?q=Calle+4+%238-76,+Tocaima,+Cundinamarca,+Colombia&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
+      </div><!-- /contact-grid -->
+    </div><!-- /container -->
+  </section>
+
+  <!-- =============================================
+       SECCIÓN EQUIPO DE TRABAJO
+  ============================================= -->
+  <section class="team-section" id="equipo" aria-label="Equipo de trabajo">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">👥 Nuestro Equipo</span>
+        <h2 class="section-title">Equipo de <span class="highlight-rainbow">Trabajo</span></h2>
+        <p class="section-desc">Conoce a las personas que hacen posible la magia de Heladería y Frutería Arcoíris.</p>
+      </div>
+
+      <div class="team-grid">
+
+        <!-- Miembro 1 -->
+        <div class="team-card">
+          <div class="team-photo-wrap">
+            <div class="team-photo-circle">
+              <img src="img/astrit.jpeg" alt="Integrante 1" class="team-photo" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=\'team-photo-placeholder\'>👤</span>';" />
+            </div>
+            <div class="team-badge">🌟</div>
+          </div>
+          <h3 class="team-name">Integrante 1</h3>
+          <p class="team-role">lider y Desarrolladora</p>
+        </div>
+
+        <!-- Miembro 2 -->
+        <div class="team-card">
+          <div class="team-photo-wrap">
+            <div class="team-photo-circle">
+              <img src="img/Dani.jpeg" alt="Integrante 2" class="team-photo" onerror="this.style.display='none';this.parentElement.innerHTML='<span class=\'team-photo-placeholder\'>👤</span>';" />
+            </div>
+            <div class="team-badge">💻</div>
+          </div>
+          <h3 class="team-name">Integrante 2</h3>
+          <p class="team-role">Presentadora</p>
+        </div>
+
+      </div><!-- /team-grid -->
+    </div><!-- /container -->
+  </section>
+
+  <!-- =============================================
+       PIE DE PÁGINA (FOOTER)
+  ============================================= -->
+  <footer class="footer" role="contentinfo">
+
+    <!-- Ola decorativa superior del footer -->
+    <div class="footer-wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,60 C360,0 1080,100 1440,30 L1440,80 L0,80 Z" fill="#1a1a2e"/>
+      </svg>
+    </div>
+
+    <div class="footer-content">
+      <div class="footer-grid">
+
+        <!-- Columna: Logo y descripción -->
+        <div class="footer-col footer-brand">
+          <div class="footer-logo">
+            <span aria-hidden="true">🍦</span>
+            <div>
+              <strong>Arcoíris</strong>
+              <small>Heladería &amp; Frutería</small>
+            </div>
+          </div>
+          <p class="footer-desc">
+            "Sabor, color y frescura en cada bocado." Hechos con amor en Tocaima, para toda la familia.
+          </p>
+          <!-- Redes sociales en footer (solo Facebook y WhatsApp) -->
+          <div class="footer-social">
+            <a href="https://www.facebook.com/share/1DfzRHi6oQ/" id="footer-facebook" class="footer-social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="https://wa.me/573134292831" id="footer-whatsapp" class="footer-social-link" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <!-- Columna: Menú rápido -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Navegación</h4>
+          <ul class="footer-links">
+            <li><a href="#inicio"    id="footer-nav-inicio">🏠 Inicio</a></li>
+            <li><a href="#productos" id="footer-nav-productos">🍨 Productos</a></li>
+            <li><a href="#nosotros"  id="footer-nav-nosotros">💛 Nosotros</a></li>
+            <li><a href="#contacto"  id="footer-nav-contacto">📞 Contacto</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna: Productos destacados -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Productos</h4>
+          <ul class="footer-links">
+            <li><a href="#productos" id="footer-prod-helados">🍦 Helados Artesanales</a></li>
+            <li><a href="#productos" id="footer-prod-ensaladas">🥗 Ensaladas de Frutas</a></li>
+            <li><a href="#productos" id="footer-prod-jugos">🥤 Jugos Naturales</a></li>
+            <li><a href="#productos" id="footer-prod-comida">🍔 Comida Rápida</a></li>
+          </ul>
+        </div>
+
+        <!-- Columna: Contacto rápido -->
+        <div class="footer-col">
+          <h4 class="footer-heading">Contacto Rápido</h4>
+          <ul class="footer-contact-list">
+            <li>
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+              <span>Tocaima, Cundinamarca, CO</span>
+            </li>
+            <li>
+              <i class="fas fa-phone" aria-hidden="true"></i>
+              <span>+57 313 429 28 31</span>
+            </li>
+            <li>
+              <i class="fas fa-clock" aria-hidden="true"></i>
+              <span>Lun–Dom: 11am – 11pm</span>
+            </li>
+          </ul>
+        </div>
+
+      </div><!-- /footer-grid -->
+
+      <!-- Barra inferior del footer -->
+      <div class="footer-bottom">
+        <div class="rainbow-bar" aria-hidden="true"></div>
+        <p>
+          © <span id="currentYear"></span> Heladería y Frutería Arcoíris · Tocaima, Colombia 🇨🇴
+          &nbsp;|&nbsp; Hecho con 🌈 y mucho amor
+          &nbsp;|&nbsp; <a href="admin.html" id="footer-admin-link" style="color:inherit; opacity:.6;">Panel Admin</a>
+        </p>
+      </div>
+
+    </div><!-- /footer-content -->
+  </footer>
+
+  <!-- Botón flotante de WhatsApp -->
+  <a
+    href="https://wa.me/573134292831?text=Hola%2C%20me%20gustaría%20hacer%20un%20pedido%20🌈"
+    class="whatsapp-float"
+    id="whatsapp-float-btn"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contactar por WhatsApp"
+  >
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    <span class="whatsapp-tooltip">¡Pide por WhatsApp!</span>
+  </a>
+
+  <!-- Botón volver arriba -->
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Volver al inicio" title="Volver al inicio">
+    <i class="fas fa-chevron-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- Modal de detalle de producto -->
+  <div class="modal-overlay" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" id="modalCloseBtn" aria-label="Cerrar modal">
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+      <img src="" alt="" class="modal-img" id="modalImg" />
+      <div class="modal-body">
+        <h3 id="modalTitle" class="modal-title">Nombre del producto</h3>
+        <p id="modalDesc" class="modal-desc">Descripción del producto</p>
+        <span id="modalPrice" class="modal-price">$0 COP</span>
+        <div class="modal-actions">
+          <button id="modalAddCart" class="btn-add-modal" aria-label="Agregar al carrito desde modal">
+            <i class="fas fa-cart-plus" aria-hidden="true"></i> Agregar al carrito
+          </button>
+          <a id="modalWhatsapp" href="#" class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i> Pedir por WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =============================================
+       CARRITO DE COMPRAS (DRAWER LATERAL)
+  ============================================= -->
+  <!-- Overlay oscuro al abrir carrito -->
+  <div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+
+  <!-- Panel lateral del carrito -->
+  <aside class="cart-drawer" id="cartDrawer" role="complementary" aria-label="Carrito de compras" aria-hidden="true">
+    <div class="cart-header">
+      <h2 class="cart-title"><i class="fas fa-shopping-basket" aria-hidden="true"></i> Mi Carrito</h2>
+      <button class="cart-close" id="cartClose" aria-label="Cerrar carrito">
+        <i class="fas fa-times" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <!-- Lista de items del carrito -->
+    <div class="cart-body" id="cartBody">
+      <!-- Estado vacío -->
+      <div class="cart-empty" id="cartEmpty">
+        <span class="cart-empty-icon">🛒</span>
+        <p>Tu carrito está vacío</p>
+        <small>¡Agrega tus productos favoritos!</small>
+      </div>
+      <!-- Los items se insertan dinámicamente aquí -->
+      <ul class="cart-items-list" id="cartItemsList" aria-label="Productos en el carrito"></ul>
+    </div>
+
+    <!-- Resumen y total -->
+    <div class="cart-footer" id="cartFooter">
+      <div class="cart-summary">
+        <div class="cart-summary-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">$0 COP</span>
+        </div>
+        <div class="cart-summary-row cart-total-row">
+          <strong>Total</strong>
+          <strong id="cartTotal">$0 COP</strong>
+        </div>
+      </div>
+      <button class="cart-checkout-btn" id="cartCheckout" aria-label="Finalizar pedido por WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+        Pedir por WhatsApp
+      </button>
+      <button class="cart-clear-btn" id="cartClear" aria-label="Vaciar carrito">
+        <i class="fas fa-trash" aria-hidden="true"></i> Vaciar carrito
+      </button>
+    </div>
+  </aside>
+
+  <!-- Scripts: products.js define el catálogo, main.js la lógica del sitio -->
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

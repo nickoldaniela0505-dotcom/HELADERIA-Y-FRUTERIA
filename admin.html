@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Panel Admin · Heladería Arcoíris</title>
+  <link rel="icon" href="img/logo.ico" sizes="32x32">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body class="admin-body">
+
+  <!-- =============================================
+       PANTALLA DE ACCESO
+       Nota: esto es solo una barrera básica para uso interno,
+       NO es un sistema de autenticación seguro (la contraseña
+       vive en js/admin.js, visible en el código fuente).
+  ============================================= -->
+  <div class="admin-login" id="loginScreen">
+    <form class="login-card" id="loginForm">
+      <div class="login-icon">🔐</div>
+      <h1>Panel de Administración</h1>
+      <p class="login-sub">Heladería y Frutería Arcoíris</p>
+      <input type="password" id="loginPassword" placeholder="Contraseña" autocomplete="current-password" required />
+      <button type="submit" class="btn btn-primary">Ingresar</button>
+      <p class="login-error" id="loginError"></p>
+      <a href="index.html" class="login-back">← Volver al sitio</a>
+    </form>
+  </div>
+
+  <!-- =============================================
+       PANEL PRINCIPAL
+  ============================================= -->
+  <div class="admin-panel" id="adminPanel">
+    <header class="admin-header">
+      <div class="admin-header-title">
+        <span class="logo-icon">🍦</span>
+        <div>
+          <strong>Panel de Administración</strong>
+          <small>Heladería y Frutería Arcoíris</small>
+        </div>
+      </div>
+      <div class="admin-header-actions">
+        <a href="index.html" class="btn btn-outline" target="_blank" rel="noopener">👁️ Ver sitio</a>
+        <button class="btn btn-outline" id="logoutBtn">🚪 Salir</button>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <div class="admin-notice">
+        ⚠️ Los cambios se guardan <strong>solo en este navegador</strong> (localStorage). Si abres el sitio desde
+        otro computador o navegador, no se verán. Usa <strong>«Exportar JSON»</strong> para guardar una copia que
+        puedas usar para actualizar <code>js/products.js</code> de forma permanente.
+      </div>
+
+      <div class="admin-toolbar">
+        <button class="btn btn-primary" id="addProductBtn">➕ Agregar producto</button>
+        <button class="btn btn-primary" id="saveAllBtn">💾 Guardar cambios</button>
+        <button class="btn btn-outline" id="exportJsonBtn">⬇️ Exportar JSON</button>
+        <button class="btn btn-outline btn-danger" id="resetDefaultsBtn">↺ Restaurar original</button>
+      </div>
+
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Imagen</th>
+              <th>Nombre</th>
+              <th>Categoría</th>
+              <th>Precio (COP)</th>
+              <th>Descripción</th>
+              <th>Popular</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="productsTableBody"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <div class="admin-toast" id="toast"></div>
+
+  <script src="js/products.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
