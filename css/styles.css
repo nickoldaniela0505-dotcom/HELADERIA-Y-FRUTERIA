@@ -2229,6 +2229,73 @@ button {
   margin: 2.5rem auto 0;
 }
 
+/* Banner de redirección institucional */
+.institutional-banner {
+  background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 100%);
+  border: 2px solid #818cf8;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.8rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.12);
+}
+
+.inst-banner-text {
+  flex: 1 1 340px;
+}
+
+.inst-banner-badge {
+  display: inline-block;
+  background: #3b82f6;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.4rem;
+}
+
+.inst-banner-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1e1b4b;
+  margin: 0 0 0.25rem;
+}
+
+.inst-banner-desc {
+  font-size: 0.88rem;
+  color: #475569;
+  margin: 0;
+}
+
+.btn-inst-redirect {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.8rem 1.4rem;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn-inst-redirect:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(99, 102, 241, 0.5);
+  filter: brightness(1.08);
+}
+
 .survey-card {
   background: #ffffff;
   border-radius: var(--radius-lg);
