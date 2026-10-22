@@ -33,7 +33,7 @@ proyecto-sena-main/
 ## 📋 Sistema de Encuestas de Satisfacción y Opinión
 
 El sistema está direccionado y conectado tanto con el formulario institucional oficial como con el módulo interactivo de la página:
-* **Enlace Institucional PQR y Encuestas:** [`https://iedhernanvenegascarrillo.edu.co/bases2026/provecto2/pqr2.html`](https://iedhernanvenegascarrillo.edu.co/bases2026/provecto2/pqr2.html)
+* **Enlace Institucional PQR y Encuestas:** [`https://iedhernanvenegascarrillo.edu.co/bases2026/proyecto2/pqr2.html`](https://iedhernanvenegascarrillo.edu.co/bases2026/proyecto2/pqr2.html)
 * **Acceso desde el sitio:** Disponible en la barra de navegación superior, en los botones principales del hero, en el banner de la sección de encuestas y en el pie de página.
 
 La encuesta permite a los visitantes registrar información y dar su opinión en 3 pasos:
