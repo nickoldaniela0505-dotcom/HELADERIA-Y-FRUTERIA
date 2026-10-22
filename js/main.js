@@ -89,7 +89,7 @@ function handleScroll() {
 }
 
 function updateActiveNavLink() {
-  const sections = ['inicio', 'productos', 'nosotros', 'equipo', 'contacto'];
+  const sections = ['inicio', 'productos', 'nosotros', 'equipo', 'encuesta', 'contacto'];
   const scrollY  = window.scrollY + 100;
 
   sections.forEach(id => {

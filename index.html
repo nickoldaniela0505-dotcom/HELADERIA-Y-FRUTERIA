@@ -56,6 +56,7 @@
         <li role="none"><a href="#productos" class="nav-link"        role="menuitem" id="nav-productos">🍨 Productos</a></li>
         <li role="none"><a href="#nosotros"  class="nav-link"        role="menuitem" id="nav-nosotros">💛 Nosotros</a></li>
         <li role="none"><a href="#equipo"    class="nav-link"        role="menuitem" id="nav-equipo">👥 Equipo</a></li>
+        <li role="none"><a href="#encuesta"  class="nav-link"        role="menuitem" id="nav-encuesta">📋 Encuesta</a></li>
         <li role="none"><a href="#contacto"  class="nav-link"        role="menuitem" id="nav-contacto">📞 Contacto</a></li>
       </ul>
 
@@ -472,6 +473,385 @@
   </section>
 
   <!-- =============================================
+       SECCIÓN ENCUESTA DE SATISFACCIÓN Y OPINIÓN (BASE DE DATOS)
+  ============================================= -->
+  <section class="survey-section" id="encuesta" aria-label="Encuesta de satisfacción y opinión">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">📋 Tu Opinión Cuenta</span>
+        <h2 class="section-title">Encuesta de <span class="highlight-rainbow">Satisfacción y Opinión</span></h2>
+        <p class="section-desc">
+          ¡Queremos darte la mejor experiencia en Tocaima! Cuéntanos sobre ti, tus productos favoritos y tu experiencia en nuestra página web. Tus respuestas se guardan de forma segura en nuestra <strong>base de datos</strong>.
+        </p>
+      </div>
+
+      <div class="survey-wrapper">
+        <form class="survey-form" id="surveyForm" novalidate>
+
+          <!-- PASO 1: DATOS PERSONALES -->
+          <div class="survey-card">
+            <div class="survey-card-header">
+              <span class="survey-card-badge">Paso 1 de 3</span>
+              <h3 class="survey-card-title"><i class="fas fa-user-circle"></i> Información Personal</h3>
+              <p class="survey-card-desc">Compártenos algunos datos básicos para conocerte mejor.</p>
+            </div>
+
+            <div class="survey-grid">
+              <div class="form-group">
+                <label for="surveyNombre" class="form-label">Nombre Completo <span class="required">*</span></label>
+                <div class="input-icon-wrap">
+                  <i class="fas fa-user input-icon"></i>
+                  <input type="text" id="surveyNombre" name="nombreCompleto" class="form-input" placeholder="Ej: Daniela Gómez" required />
+                </div>
+                <span class="field-error" id="err-surveyNombre"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="surveyEmail" class="form-label">Correo Electrónico <span class="required">*</span></label>
+                <div class="input-icon-wrap">
+                  <i class="fas fa-envelope input-icon"></i>
+                  <input type="email" id="surveyEmail" name="correoElectronico" class="form-input" placeholder="tu-correo@ejemplo.com" required />
+                </div>
+                <span class="field-error" id="err-surveyEmail"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="surveyTelefono" class="form-label">Teléfono / WhatsApp <span class="optional">(Opcional)</span></label>
+                <div class="input-icon-wrap">
+                  <i class="fab fa-whatsapp input-icon"></i>
+                  <input type="tel" id="surveyTelefono" name="telefono" class="form-input" placeholder="Ej: 3134292831" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="surveyCiudad" class="form-label">Ciudad o Municipio <span class="required">*</span></label>
+                <div class="input-icon-wrap">
+                  <i class="fas fa-map-marker-alt input-icon"></i>
+                  <select id="surveyCiudad" name="ciudad" class="form-select" required>
+                    <option value="Tocaima">📍 Tocaima (Local)</option>
+                    <option value="Girardot">Girardot</option>
+                    <option value="Agua de Dios">Agua de Dios</option>
+                    <option value="Viotá">Viotá</option>
+                    <option value="Bogotá">Bogotá D.C.</option>
+                    <option value="Otra">Otra ciudad / municipio</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="survey-subgrid">
+              <div class="form-group">
+                <label class="form-label">Rango de Edad</label>
+                <div class="pill-options" role="radiogroup" aria-label="Rango de edad">
+                  <label class="pill-option">
+                    <input type="radio" name="rangoEdad" value="Menor de 18" />
+                    <span>&lt; 18 años</span>
+                  </label>
+                  <label class="pill-option">
+                    <input type="radio" name="rangoEdad" value="18-25" checked />
+                    <span>18 - 25</span>
+                  </label>
+                  <label class="pill-option">
+                    <input type="radio" name="rangoEdad" value="26-40" />
+                    <span>26 - 40</span>
+                  </label>
+                  <label class="pill-option">
+                    <input type="radio" name="rangoEdad" value="41-60" />
+                    <span>41 - 60</span>
+                  </label>
+                  <label class="pill-option">
+                    <input type="radio" name="rangoEdad" value="Más de 60" />
+                    <span>60+</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">¿Qué tan seguido nos visitas?</label>
+                <div class="pill-options" role="radiogroup" aria-label="Tipo de cliente">
+                  <label class="pill-option">
+                    <input type="radio" name="tipoCliente" value="Primera vez" checked />
+                    <span>🌟 Es mi primera vez</span>
+                  </label>
+                  <label class="pill-option">
+                    <input type="radio" name="tipoCliente" value="Ocasional" />
+                    <span>🚶 Ocasional</span>
+                  </label>
+                  <label class="pill-option">
+                    <input type="radio" name="tipoCliente" value="Frecuente" />
+                    <span>💖 Cliente Frecuente</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PASO 2: OPINIÓN SOBRE LOS PRODUCTOS -->
+          <div class="survey-card">
+            <div class="survey-card-header">
+              <span class="survey-card-badge">Paso 2 de 3</span>
+              <h3 class="survey-card-title"><i class="fas fa-ice-cream"></i> Opinión sobre nuestros Productos</h3>
+              <p class="survey-card-desc">Cuéntanos sobre tus sabores favoritos, porciones y frescura.</p>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">¿Qué productos has probado o te gustaría probar? <span class="optional">(Puedes seleccionar varios)</span></label>
+              <div class="checkbox-grid">
+                <label class="checkbox-card">
+                  <input type="checkbox" name="productosProbados" value="Helados artesanales" checked />
+                  <span class="checkbox-custom"></span>
+                  <span class="checkbox-text">🍦 Helados Artesanales</span>
+                </label>
+                <label class="checkbox-card">
+                  <input type="checkbox" name="productosProbados" value="Ensaladas de frutas" />
+                  <span class="checkbox-custom"></span>
+                  <span class="checkbox-text">🥗 Ensaladas de Frutas</span>
+                </label>
+                <label class="checkbox-card">
+                  <input type="checkbox" name="productosProbados" value="Fresas con crema" checked />
+                  <span class="checkbox-custom"></span>
+                  <span class="checkbox-text">🍓 Fresas con Crema</span>
+                </label>
+                <label class="checkbox-card">
+                  <input type="checkbox" name="productosProbados" value="Malteadas" />
+                  <span class="checkbox-custom"></span>
+                  <span class="checkbox-text">🥤 Malteadas</span>
+                </label>
+                <label class="checkbox-card">
+                  <input type="checkbox" name="productosProbados" value="Jugos naturales" />
+                  <span class="checkbox-custom"></span>
+                  <span class="checkbox-text">🍹 Jugos Naturales</span>
+                </label>
+                <label class="checkbox-card">
+                  <input type="checkbox" name="productosProbados" value="Comidas rápidas" />
+                  <span class="checkbox-custom"></span>
+                  <span class="checkbox-text">🍔 Hamburguesas y Perros</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="survey-grid">
+              <div class="form-group">
+                <label for="surveyProductoFavorito" class="form-label">¿Cuál es tu producto favorito del menú?</label>
+                <input type="text" id="surveyProductoFavorito" name="productoFavorito" class="form-input" placeholder="Ej: Fresas Salvajes con Crema, Copa Durazno, Super Ensalada..." />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">¿Cómo consideras nuestros precios?</label>
+                <select name="percepcionPrecio" class="form-select">
+                  <option value="Justos y adecuados" selected>👍 Justos y adecuados para la calidad</option>
+                  <option value="Muy económicos">💰 Muy económicos y accesibles</option>
+                  <option value="Podrían ser más accesibles">🏷️ Podrían ser un poco más económicos</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="ratings-grid">
+              <div class="rating-box">
+                <span class="rating-label">Sabor y Calidad de los productos:</span>
+                <div class="star-rating" data-target="calificacionCalidad" role="radiogroup" aria-label="Calificación de calidad">
+                  <button type="button" class="star-btn active" data-value="1" aria-label="1 estrella">★</button>
+                  <button type="button" class="star-btn active" data-value="2" aria-label="2 estrellas">★</button>
+                  <button type="button" class="star-btn active" data-value="3" aria-label="3 estrellas">★</button>
+                  <button type="button" class="star-btn active" data-value="4" aria-label="4 estrellas">★</button>
+                  <button type="button" class="star-btn active" data-value="5" aria-label="5 estrellas">★</button>
+                </div>
+                <input type="hidden" id="calificacionCalidad" name="calificacionCalidad" value="5" />
+                <span class="rating-feedback" id="feedback-calidad">5/5 · ¡Excelente calidad y sabor!</span>
+              </div>
+
+              <div class="rating-box">
+                <span class="rating-label">Presentación y Frescura de los ingredientes:</span>
+                <div class="star-rating" data-target="calificacionPresentacion" role="radiogroup" aria-label="Calificación de presentación">
+                  <button type="button" class="star-btn active" data-value="1" aria-label="1 estrella">★</button>
+                  <button type="button" class="star-btn active" data-value="2" aria-label="2 estrellas">★</button>
+                  <button type="button" class="star-btn active" data-value="3" aria-label="3 estrellas">★</button>
+                  <button type="button" class="star-btn active" data-value="4" aria-label="4 estrellas">★</button>
+                  <button type="button" class="star-btn active" data-value="5" aria-label="5 estrellas">★</button>
+                </div>
+                <input type="hidden" id="calificacionPresentacion" name="calificacionPresentacion" value="5" />
+                <span class="rating-feedback" id="feedback-presentacion">5/5 · ¡Impecable y súper fresco!</span>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-top: 1.25rem;">
+              <label for="surveySugerenciaProducto" class="form-label">¿Qué nuevo sabor, postre o producto te gustaría que incluyéramos?</label>
+              <input type="text" id="surveySugerenciaProducto" name="sugerenciaProducto" class="form-input" placeholder="Ej: Helado de maracuyá con chocolate, waffles calientes, café helado..." />
+            </div>
+          </div>
+
+          <!-- PASO 3: OPINIÓN SOBRE LA PÁGINA WEB -->
+          <div class="survey-card">
+            <div class="survey-card-header">
+              <span class="survey-card-badge">Paso 3 de 3</span>
+              <h3 class="survey-card-title"><i class="fas fa-laptop-code"></i> Opinión sobre la Página Web</h3>
+              <p class="survey-card-desc">Evalúa el diseño, rapidez, carrito y facilidad de uso de nuestro sitio.</p>
+            </div>
+
+            <div class="ratings-grid">
+              <div class="rating-box">
+                <span class="rating-label">Calificación general de la página web:</span>
+                <div class="star-rating" data-target="calificacionWeb" role="radiogroup" aria-label="Calificación general web">
+                  <button type="button" class="star-btn active" data-value="1" aria-label="1 estrella">★</button>
+                  <button type="button" class="star-btn active" data-value="2" aria-label="2 estrellas">★</button>
+                  <button type="button" class="star-btn active" data-value="3" aria-label="3 estrellas">★</button>
+                  <button type="button" class="star-btn active" data-value="4" aria-label="4 estrellas">★</button>
+                  <button type="button" class="star-btn active" data-value="5" aria-label="5 estrellas">★</button>
+                </div>
+                <input type="hidden" id="calificacionWeb" name="calificacionWeb" value="5" />
+                <span class="rating-feedback" id="feedback-web">5/5 · ¡Excelente experiencia web!</span>
+              </div>
+            </div>
+
+            <div class="survey-grid" style="margin-top: 1.25rem;">
+              <div class="form-group">
+                <label class="form-label">¿Qué tan fácil te resultó navegar y ver los productos?</label>
+                <div class="pill-options" role="radiogroup">
+                  <label class="pill-option">
+                    <input type="radio" name="facilidadNavegacion" value="Muy fácil" checked />
+                    <span>🟢 Muy fácil</span>
+                  </label>
+                  <label class="pill-option">
+                    <input type="radio" name="facilidadNavegacion" value="Fácil" />
+                    <span>🔵 Fácil</span>
+                  </label>
+                  <label class="pill-option">
+                    <input type="radio" name="facilidadNavegacion" value="Regular" />
+                    <span>🟡 Regular</span>
+                  </label>
+                  <label class="pill-option">
+                    <input type="radio" name="facilidadNavegacion" value="Difícil" />
+                    <span>🔴 Difícil</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">¿Qué opinas del diseño visual y colores de la página?</label>
+                <div class="pill-options" role="radiogroup">
+                  <label class="pill-option">
+                    <input type="radio" name="percepcionDiseno" value="Me encanta el estilo arcoíris" checked />
+                    <span>🌈 ¡Me encanta el estilo arcoíris!</span>
+                  </label>
+                  <label class="pill-option">
+                    <input type="radio" name="percepcionDiseno" value="Muy bonito y agradable" />
+                    <span>✨ Muy bonito</span>
+                  </label>
+                  <label class="pill-option">
+                    <input type="radio" name="percepcionDiseno" value="Normal" />
+                    <span>👍 Normal</span>
+                  </label>
+                  <label class="pill-option">
+                    <input type="radio" name="percepcionDiseno" value="Podría mejorar" />
+                    <span>🎨 Podría mejorar</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">¿Qué te parece la función de hacer pedidos por WhatsApp desde el carrito?</label>
+              <div class="pill-options" role="radiogroup">
+                <label class="pill-option">
+                  <input type="radio" name="utilidadWhatsapp" value="Excelente y muy práctica" checked />
+                  <span>🚀 Excelente y muy práctica</span>
+                </label>
+                <label class="pill-option">
+                  <input type="radio" name="utilidadWhatsapp" value="Buena opción" />
+                  <span>📲 Buena opción</span>
+                </label>
+                <label class="pill-option">
+                  <input type="radio" name="utilidadWhatsapp" value="Prefiero ir al local" />
+                  <span>🏪 Prefiero comprar directo en el local</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- NPS 1 a 10 -->
+            <div class="form-group nps-group">
+              <label class="form-label">¿Qué tan probable es que recomiendes Heladería Arcoíris a tus familiares o amigos?</label>
+              <p class="nps-help">Escala de 1 (Nada probable) a 10 (Totalmente recomendado):</p>
+              <div class="nps-scale" id="npsScale" role="radiogroup" aria-label="Escala de recomendación del 1 al 10">
+                <button type="button" class="nps-btn" data-score="1">1</button>
+                <button type="button" class="nps-btn" data-score="2">2</button>
+                <button type="button" class="nps-btn" data-score="3">3</button>
+                <button type="button" class="nps-btn" data-score="4">4</button>
+                <button type="button" class="nps-btn" data-score="5">5</button>
+                <button type="button" class="nps-btn" data-score="6">6</button>
+                <button type="button" class="nps-btn" data-score="7">7</button>
+                <button type="button" class="nps-btn" data-score="8">8</button>
+                <button type="button" class="nps-btn" data-score="9">9</button>
+                <button type="button" class="nps-btn selected" data-score="10">10</button>
+              </div>
+              <input type="hidden" id="recomendacionNPS" name="recomendacionNPS" value="10" />
+              <div class="nps-labels">
+                <span>😞 1 = Poco probable</span>
+                <span id="npsSelectedBadge" class="nps-badge-promotor">Puntaje: 10 / 10 · ⭐ ¡Promotor!</span>
+                <span>😍 10 = Totalmente</span>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-top: 1.25rem;">
+              <label for="surveyComentarios" class="form-label">Comentarios, sugerencias o felicitaciones para el equipo:</label>
+              <textarea id="surveyComentarios" name="comentarios" class="form-textarea" rows="3" placeholder="Escribe aquí cualquier recomendación o mensaje adicional para Heladería Arcoíris..."></textarea>
+            </div>
+          </div>
+
+          <!-- ACEPTACIÓN DE POLÍTICAS Y BOTÓN SUBMIT -->
+          <div class="survey-footer-card">
+            <label class="checkbox-consent">
+              <input type="checkbox" id="surveyConsent" required checked />
+              <span>Autorizo el almacenamiento de mis respuestas en la <strong>base de datos</strong> de Heladería Arcoíris para fines estadísticos y de mejora del servicio.</span>
+            </label>
+
+            <button type="submit" class="btn-survey-submit" id="surveySubmitBtn">
+              <span class="btn-text"><i class="fas fa-paper-plane"></i> Enviar Encuesta a la Base de Datos</span>
+            </button>
+            <p class="survey-db-notice">
+              <i class="fas fa-database"></i> Conectado con base de datos local e indexada compatible con MySQL / IndexedDB.
+            </p>
+          </div>
+
+        </form>
+
+        <!-- TARJETA DE ÉXITO TRAS ENVIAR -->
+        <div class="survey-success-card" id="surveySuccessCard" style="display: none;" aria-live="polite">
+          <div class="success-icon-wrap">
+            <span class="success-icon">🎉</span>
+          </div>
+          <h3 class="success-title">¡Muchas gracias, <span id="successUserName">Amigo/a</span>!</h3>
+          <p class="success-message">
+            Tu opinión ha sido registrada exitosamente en la base de datos de <strong>Heladería y Frutería Arcoíris</strong>.
+          </p>
+          <div class="success-details-box">
+            <div class="success-detail-row">
+              <span>Código de Encuesta:</span>
+              <strong id="successUserCode" class="success-code-highlight">ENC-XXXX</strong>
+            </div>
+            <div class="success-detail-row">
+              <span>Fecha y Hora:</span>
+              <span id="successUserDate">--</span>
+            </div>
+            <div class="success-detail-row">
+              <span>Estado en Base de Datos:</span>
+              <span class="badge-db-status"><i class="fas fa-check-circle"></i> Almacenado con éxito</span>
+            </div>
+          </div>
+          <div class="success-actions">
+            <button type="button" class="btn btn-primary" id="btnSurveyNew">
+              ✏️ Llenar otra encuesta
+            </button>
+            <a href="#productos" class="btn btn-outline" id="btnSurveyToProducts">
+              🍨 Explorar Productos
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /survey-wrapper -->
+    </div><!-- /container -->
+  </section>
+
+  <!-- =============================================
        PIE DE PÁGINA (FOOTER)
   ============================================= -->
   <footer class="footer" role="contentinfo">
@@ -512,6 +892,8 @@
             <li><a href="#inicio"    id="footer-nav-inicio">🏠 Inicio</a></li>
             <li><a href="#productos" id="footer-nav-productos">🍨 Productos</a></li>
             <li><a href="#nosotros"  id="footer-nav-nosotros">💛 Nosotros</a></li>
+            <li><a href="#equipo"    id="footer-nav-equipo">👥 Equipo</a></li>
+            <li><a href="#encuesta"  id="footer-nav-encuesta">📋 Encuesta</a></li>
             <li><a href="#contacto"  id="footer-nav-contacto">📞 Contacto</a></li>
           </ul>
         </div>
@@ -651,8 +1033,10 @@
     </div>
   </aside>
 
-  <!-- Scripts: products.js define el catálogo, main.js la lógica del sitio -->
+  <!-- Scripts: products.js define el catálogo, survey-db.js la base de datos, survey.js la lógica de la encuesta, main.js la lógica general -->
   <script src="js/products.js"></script>
+  <script src="js/survey-db.js"></script>
+  <script src="js/survey.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

@@ -1,76 +1,131 @@
 # 🌈 Heladería y Frutería Arcoíris
 
-Sitio web de **Heladería y Frutería Arcoíris**, ubicada en Tocaima, Cundinamarca (Colombia). Incluye catálogo de productos con carrito de compras (pedidos por WhatsApp) y un panel de administración para editar el catálogo.
+Sitio web de **Heladería y Frutería Arcoíris**, ubicada en Tocaima, Cundinamarca (Colombia). Incluye catálogo de productos con carrito de compras (pedidos por WhatsApp), sistema interactivo de **Encuestas de Satisfacción con Base de Datos**, y un panel de administración para gestionar productos y consultar las respuestas de los usuarios.
+
+---
 
 ## 📁 Estructura del proyecto
 
 ```
 proyecto-sena-main/
-├── index.html          # Página pública del sitio
-├── admin.html           # Panel de administración de productos
+├── index.html                   # Página pública del sitio (incluye la Encuesta interactiva)
+├── admin.html                   # Panel de administración (Productos + Base de Datos de Encuestas)
+├── database.sql                 # Script SQL relacional (tablas, relaciones, vistas, seed data)
+├── api/                         # Endpoints PHP para backend MySQL (opcional/servidor local)
+│   ├── db_config.php            # Conexión PDO a MySQL
+│   ├── guardar_encuesta.php     # Registro de encuestas en MySQL
+│   └── obtener_encuestas.php    # Consulta de encuestas desde MySQL
 ├── css/
-│   ├── styles.css       # Estilos del sitio público
-│   └── admin.css        # Estilos del panel admin
+│   ├── styles.css               # Estilos del sitio público y sección de encuestas
+│   └── admin.css                # Estilos del panel admin y visualizador de base de datos
 ├── js/
-│   ├── products.js       # Catálogo de productos (fuente única de datos)
-│   ├── main.js            # Lógica del sitio: nav, carrito, modal, filtros, slideshow
-│   └── admin.js           # Lógica del panel de administración
-├── img/                  # Todas las imágenes del sitio (productos, equipo, hero)
-└── README.md
+│   ├── products.js              # Catálogo de productos (fuente única de datos)
+│   ├── survey-db.js             # Módulo de Base de Datos (IndexedDB + LocalStorage + API + Exportación CSV/JSON)
+│   ├── survey.js                # Lógica interactiva del formulario de encuesta
+│   ├── main.js                  # Lógica del sitio: nav, carrito, modal, filtros, slideshow
+│   └── admin.js                 # Lógica del panel de administración y panel de encuestas
+├── img/                         # Todas las imágenes del sitio (productos, equipo, hero)
+└── README.md                    # Documentación del proyecto
 ```
+
+---
+
+## 📋 Sistema de Encuestas de Satisfacción y Opinión
+
+La encuesta permite a los visitantes registrar información y dar su opinión en 3 pasos:
+
+1. **👤 Información Personal:**
+   - Nombre completo y correo electrónico.
+   - Teléfono / WhatsApp (opcional).
+   - Ciudad o municipio (Tocaima, Girardot, Agua de Dios, Viotá, Bogotá, Otra).
+   - Rango de edad y frecuencia de visita (Primera vez, Ocasional, Frecuente).
+
+2. **🍨 Opinión sobre los Productos:**
+   - Selección de categorías y productos probados (helados, ensaladas, fresas con crema, malteadas, etc.).
+   - Producto favorito del menú.
+   - Calificación de calidad y sabor (estrellas interactivas 1 a 5 ⭐).
+   - Calificación de presentación y frescura (estrellas interactivas 1 a 5 ⭐).
+   - Percepción de precios.
+   - Sugerencias de nuevos sabores o postres.
+
+3. **🌐 Opinión sobre la Página Web y Servicio:**
+   - Calificación general de la experiencia web (estrellas 1 a 5 ⭐).
+   - Facilidad de navegación.
+   - Percepción del diseño visual arcoíris.
+   - Utilidad de la función del carrito con pedidos directos a WhatsApp.
+   - Escala NPS de recomendación del 1 al 10 (Promotores, Pasivos, Detractores).
+   - Comentarios, sugerencias y felicitaciones libres.
+
+---
+
+## 🗄️ Arquitectura de la Base de Datos
+
+El sistema implementa una arquitectura híbrida pensada tanto para despliegue en **GitHub Pages** como para entrega académica **SENA**:
+
+### 1. Base de Datos en el Navegador (IndexedDB + LocalStorage)
+- Se ejecuta automáticamente en cualquier navegador sin necesidad de servidores externos.
+- Almacena cada encuesta con un identificador único generado (`ENC-YYYYMMDD-XXXX`), fecha y hora precisa.
+- Persiste a través de recargas y reinicios.
+- Totalmente funcional en GitHub Pages.
+
+### 2. Base de Datos Relacional SQL (`database.sql`)
+- Script SQL compatible con MySQL / MariaDB (phpMyAdmin, XAMPP, Workbench).
+- **Tablas relacionales:**
+  - `encuestados`: Datos personales y demográficos.
+  - `productos_interes`: Categorías probadas (relación 1:N con clave foránea `ON DELETE CASCADE`).
+  - `evaluaciones_productos`: Calidad, presentación, producto favorito y sugerencias.
+  - `evaluaciones_sitio_web`: Calificación web, navegación, pedidos por WhatsApp y métrica NPS.
+- **Vistas y Reportes:**
+  - `vista_resumen_encuestas`: Consulta consolidada de todas las respuestas.
+- Incluye registros de prueba (`INSERT INTO`) con respuestas realistas de la región (Tocaima, Girardot, Agua de Dios).
+
+### 3. API PHP (`api/`)
+- Conexión PDO con sentencias preparadas para prevenir inyección SQL.
+- Si el proyecto se ejecuta en un servidor con soporte PHP/MySQL (como XAMPP en `htdocs`), las encuestas se sincronizan directamente a MySQL en tiempo real.
+
+---
+
+## 🔐 Panel de Administración (`admin.html`)
+
+El panel incluye dos pestañas:
+
+1. **🍨 Catálogo de Productos:** Permite editar precios, imágenes, nombres y categorías del catálogo.
+2. **📋 Encuestas y Base de Datos:**
+   - **Tarjetas KPI en vivo:** Total de encuestas, promedio de satisfacción de productos, promedio de la web y porcentaje de recomendación NPS.
+   - **Tabla interactiva:** Listado completo con buscador en tiempo real por nombre, correo o producto favorito.
+   - **👁️ Ver Detalle:** Modal con el desglose completo de todas las respuestas del cliente.
+   - **📥 Exportar a Excel (CSV):** Descarga inmediata en formato CSV con codificación UTF-8 BOM (compatible con Microsoft Excel).
+   - **⬇️ Exportar JSON:** Respaldo completo de la base de datos en formato JSON.
+   - **➕ Cargar Datos Demo:** Inserta encuestas de prueba para demostración y evaluación rápida.
+   - **🗑️ Vaciar / Eliminar:** Gestión de registros.
+
+**Acceso al panel:** contraseña `arcoiris2026` (definida en `js/admin.js`).
+
+---
 
 ## 🚀 Cómo ejecutar el sitio
 
-Es un sitio estático (HTML/CSS/JS), no necesita instalación ni backend:
+### Opción 1: En línea vía GitHub Pages
+1. Abre el repositorio en GitHub y activa GitHub Pages (`Settings → Pages → Branch: main / root`).
+2. Ingresa a la URL asignada. ¡El sitio y la encuesta funcionan de inmediato!
 
-1. Descarga o clona el repositorio.
-2. Abre `index.html` directamente en el navegador, **o** levanta un servidor local simple (recomendado, evita restricciones del navegador al leer archivos):
+### Opción 2: Servidor local simple
+```bash
+npx serve .
+# o
+python -m http.server 8080
+```
+Visita `http://localhost:8080`.
 
-   ```bash
-   npx serve .
-   # o
-   python -m http.server 8080
-   ```
-3. Visita `http://localhost:8080` (o la URL que indique la herramienta).
+### Opción 3: Con base de datos MySQL local (XAMPP / WampServer)
+1. Coloca la carpeta en `C:\xampp\htdocs\heladeria-arcoiris`.
+2. En phpMyAdmin, crea la base de datos o importa el archivo `database.sql`.
+3. Abre `http://localhost/heladeria-arcoiris/` en tu navegador.
 
-## 🍨 Catálogo de productos (`js/products.js`)
-
-Todos los productos (nombre, precio, categoría, descripción, imagen) viven en un solo lugar: `DEFAULT_PRODUCTS` dentro de `js/products.js`. Tanto `index.html` como `admin.html` leen de ahí. Para agregar/editar un producto de forma **permanente** (visible para todos los visitantes), edita ese archivo directamente y vuelve a subir los cambios a GitHub.
-
-## 🔐 Panel de administración (`admin.html`)
-
-Permite, desde el navegador:
-
-- Editar nombre, precio, categoría, descripción y marcar un producto como "Popular".
-- Subir una nueva imagen para un producto (arrastrando un archivo desde tu computador).
-- Agregar o eliminar productos del catálogo.
-- Exportar el catálogo actual como un archivo `products.json`.
-
-**Acceso:** contraseña `arcoiris2026` (definida en `js/admin.js`, constante `ADMIN_PASSWORD`). Cámbiala ahí si vas a usar el panel en un sitio público.
-
-### ⚠️ Limitación importante: los cambios son solo locales
-
-Este panel guarda los cambios en **`localStorage`**, es decir, **solo en el navegador donde los hiciste**. Esto significa:
-
-- Si editas un precio desde el panel y recargas `index.html` **en el mismo navegador**, sí verás el cambio.
-- Si otra persona visita el sitio desde **otro computador, celular o navegador**, **no verá tus cambios** — seguirá viendo el catálogo original de `js/products.js`.
-- Es útil para **probar** cómo quedaría un cambio antes de aplicarlo "de verdad".
-
-**¿Cómo hacer que un cambio se vea para todos?**
-
-1. Desde el panel, haz tus ediciones y pulsa **"⬇️ Exportar JSON"** para descargar `products.json` con el catálogo actualizado (incluye imágenes nuevas como texto base64).
-2. Copia esos datos a `js/products.js` (reemplazando el contenido del array `DEFAULT_PRODUCTS`), o pide ayuda para automatizar ese paso.
-3. Sube el cambio a GitHub. Ahora sí lo verán todos los visitantes.
-
-**Para que el panel actualice el sitio en vivo automáticamente** (sin este paso manual), se necesita un backend real — por ejemplo Firebase o un servidor Node.js con base de datos. Es un cambio sencillo de agregar más adelante si el proyecto crece; por ahora se optó por esta versión 100% estática, ideal para alojar gratis en GitHub Pages.
-
-## 📦 Publicar en GitHub Pages (opcional)
-
-1. Sube el repositorio a GitHub.
-2. En **Settings → Pages**, selecciona la rama principal (`main`) y carpeta raíz (`/`).
-3. El sitio quedará disponible en `https://<tu-usuario>.github.io/<nombre-repo>/`.
+---
 
 ## 📞 Contacto del negocio
 
-- WhatsApp: +57 313 429 28 31
-- Dirección: Calle 4 #8-76, Tocaima, Cundinamarca, Colombia
+- **WhatsApp:** +57 313 429 28 31
+- **Dirección:** Calle 4 #8-76, Tocaima, Cundinamarca, Colombia
+- **Horario:** Lunes a Domingo, 11:00 am – 11:00 pm
