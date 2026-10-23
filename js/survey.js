@@ -202,6 +202,26 @@ document.addEventListener('DOMContentLoaded', () => {
       surveySuccessCard.style.display = 'block';
       surveySuccessCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
+      // Redirección opcional automática al enlace oficial pqr3.html
+      const instBtn = document.getElementById('btnGoToInstitution');
+      if (instBtn) {
+        let count = 4;
+        instBtn.innerHTML = `<i class="fas fa-external-link-alt"></i> Redirigiendo a pqr3.html en ${count}s... (o haz clic aquí)`;
+        const redirectTimer = setInterval(() => {
+          count--;
+          if (count > 0) {
+            instBtn.innerHTML = `<i class="fas fa-external-link-alt"></i> Redirigiendo a pqr3.html en ${count}s... (o haz clic aquí)`;
+          } else {
+            clearInterval(redirectTimer);
+            window.location.href = 'https://iedhernanvenegascarrillo.edu.co/bases2026/proyecto3/pqr3.html';
+          }
+        }, 1000);
+
+        if (btnSurveyNew) {
+          btnSurveyNew.addEventListener('click', () => clearInterval(redirectTimer), { once: true });
+        }
+      }
+
     } catch (err) {
       console.error('Error al guardar la encuesta:', err);
       alert('Hubo un inconveniente al registrar la encuesta. Por favor inténtalo nuevamente.');
